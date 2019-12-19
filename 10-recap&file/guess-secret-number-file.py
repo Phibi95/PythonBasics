@@ -1,10 +1,14 @@
 import random
+import os.path
 
-secret = 27 #random.randint(1, 30)
+
+secret = random.randint(1, 30)
 attempts = 0
-
-with open('score.txt','r') as file:
-    highscore = int(file.read())
+if os.path.isfile('score.txt'):
+    with open('score.txt','r') as file:
+        highscore = int(file.read())
+else:
+    highscore = 10000
 
 while True:
     guess = int(input("Guess the secret number (between 1 and 30): "))
