@@ -19,7 +19,9 @@ contacts = [{
 
 # print(contacts[0]["name"])
 
-for contact in contacts:
-    print(contact["name"] + " ("+ str(contact["age"])+")")
+# for contact in contacts:
+#    print(contact["name"] + " ("+ str(contact["age"])+")")
 
-print(contacts)
+#print(contacts)
+
+print(contacts[0]["favorite_car_brands"][0])
