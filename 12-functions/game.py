@@ -1,12 +1,16 @@
 import datetime
 import json
 import random
+import os.path
 
 
 
 def get_score_list():
-    with open("score_list.txt", "r") as score_file:
-        return json.loads(score_file.read())
+    if os.path.isfile('score_list.txt'):
+        with open("score_list.txt", "r") as score_file:
+            return json.loads(score_file.read())
+    else:
+        return []
 
 def get_top_scores():
     score_list = get_score_list()
