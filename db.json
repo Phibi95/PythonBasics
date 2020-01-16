@@ -1,5 +1,5 @@
 {
-  "ligen": [
+  "liga": [
     {
       "id": 1,
       "name" : "1. Bundesliga"
@@ -16,12 +16,27 @@
   "teams": [
     {
       "id" : 1,
-      "ligenId": 1,
+      "ligaId": 1,
       "name" : "Bayer Leverkusen"
     },
     {
       "id" : 2,
-      "ligenId": 2,
+      "ligaId": 1,
+      "name" : "Bayer München"
+    },
+    {
+      "id" : 3,
+      "ligaId": 1,
+      "name" : "Borussia Dortmund"
+    },
+    {
+      "id" : 4,
+      "ligaId": 1,
+      "name" : "FC Schalke 04"
+    },
+    {
+      "id" : 5,
+      "ligaId": 2,
       "name" : "1. FC Köln"
     }
   ]
