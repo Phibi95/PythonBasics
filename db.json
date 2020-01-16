@@ -1,0 +1,28 @@
+{
+  "ligen": [
+    {
+      "id": 1,
+      "name" : "1. Bundesliga"
+    },
+    {
+      "id": 2,
+      "name" : "2. Bundesliga"
+    },
+    {
+      "id": 3,
+      "name" : "3. Bundesliga"
+    }
+  ],
+  "teams": [
+    {
+      "id" : 1,
+      "ligenId": 1,
+      "name" : "Bayer Leverkusen"
+    },
+    {
+      "id" : 2,
+      "ligenId": 2,
+      "name" : "1. FC Köln"
+    }
+  ]
+}
