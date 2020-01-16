@@ -17,27 +17,37 @@
     {
       "id" : 1,
       "ligaId": 1,
-      "name" : "Bayer Leverkusen"
+      "name" : "Bayer Leverkusen",
+      "city" : "Leverkusen",
+      "fans" : 1000
     },
     {
       "id" : 2,
       "ligaId": 1,
-      "name" : "Bayer München"
+      "name" : "Bayer München",
+      "city" : "München",
+      "fans" : 1000
     },
     {
       "id" : 3,
       "ligaId": 1,
-      "name" : "Borussia Dortmund"
+      "name" : "Borussia Dortmund",
+      "city" : "Dortmund",
+      "fans" : 1000
     },
     {
       "id" : 4,
       "ligaId": 1,
-      "name" : "FC Schalke 04"
+      "name" : "FC Schalke 04",
+      "city" : "Gelsenkirchen",
+      "fans" : 1000
     },
     {
       "id" : 5,
       "ligaId": 2,
-      "name" : "1. FC Köln"
+      "name" : "1. FC Köln",
+      "city" : "Köln",
+      "fans" : 1000
     }
   ]
 }
