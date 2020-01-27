@@ -9,7 +9,8 @@ def index():
 
 @app.route("/kontostand")
 def kontostand():
-    kontostand = 559990.09
+    #kontostand = 559990.09
+    return render_template("about.html",kontostand=kontostand)
     return "Hello, SmartNinja dein Kontostand beträgt: "+str(kontostand)
 
 @app.route("/about_me")
