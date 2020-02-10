@@ -1,5 +1,6 @@
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, make_response
 from models import db, User
+import uuid
 
 db.create_all()
 app = Flask(__name__)
@@ -7,10 +8,15 @@ app = Flask(__name__)
 post_list = ["Eine Reise nach Indien", "Walfischen in Alaska", "Mal was ganz anderes"]
 
 # GET ROUTES
-
 @app.route("/")
 def index():
-    return render_template("index.html")
+    session_token = request.cookies.get("session_token")
+    if session_token:
+        user = db.query(User).filter_by(token=session_token).first()
+    else:
+        user = None
+
+    return render_template("index.html", user = user)
 
 @app.route("/posts")
 def posts():
@@ -33,14 +39,50 @@ def login():
     else:
         print("Hey ich möchte mich einloggen")
         # hole user anhand email aus der datenbank
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        user = db.query(User).filter_by(email=email).first()
+
+        if not user:
+            # Benutzer erstellen
+            user = User(name = email, email = email, password = password)
+            # Benutzer in Datenbank
+            db.add(user)
+            db.commit()
 
         # vergleiche passwort aus datenbank mit eingebenem passwort
 
-        # if korrekt
-        return redirect("/posts")
+        if password == user.password:
+            # if korrekt
+            session_token = str(uuid.uuid4())
+
+            user.token = session_token
+            db.add(user)
+            db.commit()
+
+            response = make_response(redirect("/posts"))
+            response.set_cookie("session_token",session_token, samesite='Strict', httponly= True, max_age = 3600)
+
+            return response
+        else:
+            return "FALSCHES PASSWORT!"
 
         # else
         # redirect login
+@app.route("/logout", methods=["GET"])
+def logout():
+    session_token = request.cookies.get("session_token")
+    if session_token:
+        user = db.query(User).filter_by(token=session_token).first()
+        user.token = None
+        db.add(user)
+        db.commit()
+
+    response = make_response(redirect("/"))
+    response.set_cookie("session_token",expires = 0)
+    return response
+
 
 # POST ROUTES
 
@@ -53,4 +95,4 @@ def add_post():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
