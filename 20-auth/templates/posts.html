@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Das sind meine Posts</p>
+
+{% for title in posts %}
+<li style="color: red;">{{ title }}</li>
+{% endfor %}
+<a href="/enter-post"><button>Add Post</button></a>
+
+{% endblock content %}

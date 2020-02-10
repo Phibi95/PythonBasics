@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="/guestbook">
+    <input required type="text" name="first_name" placeholder="Gib bitte deinen Vornamen ein.">
+    <br>
+    <input required type="text" name="last_name" placeholder="Gib bitte deinen Nachnamen ein.">
+    <br>
+    <input required type="email" name="email" placeholder="Gibt deine E-Mail ein!">
+    <br>
+    <textarea required maxlength="250" name="message" placeholder="Was möchtest du mir sagen?"></textarea>
+    <br>
+    <button type="submit">Abschicken</button>
+    <hr>
+</form>
+
+<p>Das sind meine Gästebucheinträge</p>
+
+{% for entry in entries %}
+<li>{{ entry.first_name }} {{ entry.last_name }} ({{ entry.email }}): {{ entry.message }}</li>
+{% endfor %}
+
+{% endblock content %}

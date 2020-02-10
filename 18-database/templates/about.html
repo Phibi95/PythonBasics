@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Das ist die About Page von: {{ contact_firstname }}</p>
+
+<form method="post" action="/about">
+    <input required type="text" name="contact_firstname" placeholder="Gib bitte deinen Vornamen ein.">
+    <br>
+    <input type="text" name="contact_lastname" placeholder="Gib bitte deinen Nachnamen ein.">
+    <br>
+    <input required type="email" name="contact_email" placeholder="Gibt deine E-Mail ein!">
+    <br>
+    <textarea maxlength="250" name="contact_message" placeholder="Was möchtest du mir sagen?"></textarea>
+    <br>
+    <button type="submit">Abschicken</button>
+    <hr>
+</form>
+
+<form method="post" action="/register">
+    <input required type="text" name="email" placeholder="E-Mail">
+    <br>
+    <input type="password" name="password" placeholder="Gib bitte deinen Nachnamen ein.">
+    <br>
+    <button type="submit">Abschicken</button>
+    <hr>
+</form>
+
+{% endblock content %}
