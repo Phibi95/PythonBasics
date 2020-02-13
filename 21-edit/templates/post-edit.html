@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="/posts/edit/{{ post.id }}">
+    <input type="text" placeholder="Post Titel" name="title" value="{{ post.title }}"><br><br>
+    <textarea placeholder="Content" name="content">{{ post.content }}</textarea><br>
+    <button>Speichern</button>
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="/profile">
+    Name:
+    <input type="text" placeholder="Name" name="name" value="{{ user.name }}"><br><br>
+    E-Mail:
+    <input type="text" placeholder="E-Mail" name="email" value="{{ user.email }}"><br><br>
+    Password:
+    <input type="password" placeholder="Password" name="password"><br><br>
+    <button>Speichern</button>
+</form>
+
+
+{% endblock content %}
