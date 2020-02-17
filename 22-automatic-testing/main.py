@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, make_response
 from models import db, User, Post
 import uuid
+import hashlib
 
 db.create_all()
 app = Flask(__name__)
@@ -44,17 +45,18 @@ def login():
         password = request.form.get("password")
 
         user = db.query(User).filter_by(email=email).first()
+        hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
         if not user:
             # Benutzer erstellen
-            user = User(name = email, email = email, password = password)
+            user = User(name = email, email = email, password = hashed_password)
             # Benutzer in Datenbank
             db.add(user)
             db.commit()
 
         # vergleiche passwort aus datenbank mit eingebenem passwort
 
-        if password == user.password:
+        if hashed_password == user.password:
             # if korrekt
             session_token = str(uuid.uuid4())
 
