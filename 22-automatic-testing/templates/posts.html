@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p>Das sind meine Posts</p>
+
+{% for zeile in posts %}
+<li> <a href="/posts/show/{{ zeile.id }}">{{ zeile.title }}</a>    <a href="/posts/edit/{{ zeile.id }}">Edit</a>   <a href="/posts/delete/{{ zeile.id }}">Delete</a></li>
+{% endfor %}
+<a href="/enter-post"><button>Add Post</button></a>
+
+{% endblock content %}

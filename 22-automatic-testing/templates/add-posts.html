@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>Füge einen Post hinzu</h3>
+
+<form method="post" action="/add-post">
+    <input type="text" placeholder="Post Titel" name="title"><br><br>
+    <textarea placeholder="Content" name="content"></textarea><br>
+    <button>Hinzufügen</button>
+</form>
+
+{% endblock content %}
