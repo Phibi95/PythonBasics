@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p>Das ist die Startseite</p>
+<p>Hallo Webseitenbesucher</p>
+
+<form method="post">
+    <input type="text" name="location">
+    <button type="submit">Submit</button>
+</form>
+
+<h2>
+    Location: {{data.name}}
+</h2>
+<p>Weather description: {{data.weather[0].description}}</p>
+<p>Temp: {{data.main.temp}}</p>
+{% endblock content %}
